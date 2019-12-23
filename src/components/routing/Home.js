@@ -9,13 +9,13 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography'
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
   },
   paper_head: {
-  	marginTop: '30px',
   	paddingTop: '10px',
   	paddingBottom: '10px',
     textAlign: 'center',
@@ -33,14 +33,14 @@ const styles = theme => ({
   	minWidth: '300px',
     width: '30%',
   },
-  text_head: { 
-  	fontWeight: 'bold',
-  	fontSize: '50px',
-  	color: 'inherit', 
-  	fontFamily: 'Montserrat, sans-serif', 
-  },
   table: {
     maxWidth: 600,
+  },
+  anchor: {
+    fontWeight: 'bold',
+    textDecoration: 'none',
+    color: '#ffa500',
+    fontFamily: 'serif', 
   },
 });
 
@@ -65,13 +65,19 @@ class Home extends Component {
 	    		<Grid container>
 	    			<Grid item xs={12}>
 	    				<div className={classes.paper_head}>
-	          				<div className={classes.text_head}>清水謙吾</div>
-	          				<TableContainer align="center">
+	          		<Typography variant="h3"> 清水謙吾</Typography>
+	          		<TableContainer align="center">
 						      <Table className={classes.table} aria-label="simple table">
 						        <TableBody>
 						            <TableRow>
-						              <TableCell align="center">連絡先 : <a href="mailto:kengo19.recruit@gmail.com">kengo19.recruit@gmail.com</a></TableCell>
-						              <TableCell align="left">Github : <a href="https://github.com/KengoShimizu" target="_blank" rel="noopener noreferrer"><FaGithub /></a></TableCell>
+						              <TableCell align="center">
+                            <Typography>連絡先 : <a href="mailto:kengo19.recruit@gmail.com" className={classes.anchor}>kengo19.recruit@gmail.com</a>
+                            </Typography>
+                          </TableCell>
+						              <TableCell align="left">
+                            <Typography>Github : <a href="https://github.com/KengoShimizu" target="_blank" rel="noopener noreferrer" className={classes.anchor}><FaGithub /></a>
+                            </Typography>
+                          </TableCell>
 						            </TableRow>
 						        </TableBody>
 						      </Table>
@@ -90,8 +96,14 @@ class Home extends Component {
 						        <TableBody>
 						          {rows.map(row => (
 						            <TableRow key={row.name}>
-						              <TableCell align="right">{row.year}</TableCell>
-						              <TableCell align="left"><a href={row.anchor} target="_blank" rel="noopener noreferrer">{row.name}</a></TableCell>
+						              <TableCell align="right">
+                            <Typography>{row.year}</Typography>
+                          </TableCell>
+						              <TableCell align="left">
+                            <Typography>
+                              <a href={row.anchor} target="_blank" rel="noopener noreferrer" className={classes.anchor}>{row.name}</a>
+                            </Typography>
+                          </TableCell>
 						            </TableRow>
 						          ))}
 						        </TableBody>

@@ -10,6 +10,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Drawer from '@material-ui/core/Drawer';
 import { Link } from 'react-router-dom';
+import Typography from '@material-ui/core/Typography'
 
 const styles = {
   list: {
@@ -17,6 +18,7 @@ const styles = {
   },
   root: {
     flexGrow: 1,
+    marginBottom: '30px',
   },
   menuButton: {
     marginLeft: -12,
@@ -29,7 +31,7 @@ const styles = {
   },
   selected: {
     backgroundColor: 'rgb(220, 220, 220)',
-  }
+  },
 };
 
 class Header extends Component {
@@ -40,7 +42,6 @@ class Header extends Component {
       ind: 0,
     };
   }
-  
 
   toggleDrawer = (side, open) => () => {
     this.setState({
@@ -60,26 +61,34 @@ class Header extends Component {
     const sideList = (
       <div className={classes.list}>
         <List>
-          <Link to="/" className={classes.sidelist} onClick={this.toggleList(0)}>
-            <ListItem button className={this.state.ind === 0 ? classes.selected : ''}>
-              <ListItemText disableTypography primary="Home" />
-            </ListItem>
-          </Link>
-          <Link to="/research" className={classes.sidelist} onClick={this.toggleList(1)}>
-            <ListItem button className={this.state.ind === 1 ? classes.selected : ''}>
-              <ListItemText disableTypography primary="Research" />
-            </ListItem>
-          </Link>
-          <Link to="/web_development" className={classes.sidelist} onClick={this.toggleList(2)}>
-            <ListItem button className={this.state.ind === 2 ? classes.selected : ''}>
-              <ListItemText disableTypography primary="Web Development" />
-            </ListItem>
-          </Link>
-          <Link to="/bachelor" className={classes.sidelist} onClick={this.toggleList(3)}>
-            <ListItem button className={this.state.ind === 3 ? classes.selected : ''}>
-              <ListItemText disableTypography primary="Bachelor" />
-            </ListItem>
-          </Link>
+          <Typography>
+            <Link to="/" className={classes.sidelist} onClick={this.toggleList(0)}>
+              <ListItem button className={this.state.ind === 0 ? classes.selected : ''}>
+                <ListItemText disableTypography primary="Home" />
+              </ListItem>
+            </Link>
+          </Typography>
+          <Typography>
+            <Link to="/research" className={classes.sidelist} onClick={this.toggleList(1)}>
+              <ListItem button className={this.state.ind === 1 ? classes.selected : ''}>
+                <ListItemText disableTypography primary="Research" />
+              </ListItem>
+            </Link>
+          </Typography>
+          <Typography>
+            <Link to="/web_development" className={classes.sidelist} onClick={this.toggleList(2)}>
+              <ListItem button className={this.state.ind === 2 ? classes.selected : ''}>
+                <ListItemText disableTypography primary="Web Development" />
+              </ListItem>
+            </Link>
+          </Typography>
+          <Typography>
+            <Link to="/bachelor" className={classes.sidelist} onClick={this.toggleList(3)}>
+              <ListItem button className={this.state.ind === 3 ? classes.selected : ''}>
+                <ListItemText disableTypography primary="Bachelor" />
+              </ListItem>
+            </Link>
+          </Typography>
         </List>
       </div>
     );
@@ -102,7 +111,7 @@ class Header extends Component {
               </div>
             </Drawer>
             <strong>
-              <Link to="/" style={{ boxShadow: 'none', textDecoration: 'none', color: 'inherit', fontFamily: 'Montserrat, sans-serif', }}>Kengo Shimizu</Link>
+              <Link to="/" style={{ boxShadow: 'none', textDecoration: 'none', color: 'inherit', fontFamily: 'serif', }} onClick={this.toggleList(0)}>Kengo Shimizu</Link>
             </strong>
           </Toolbar>
         </AppBar>
